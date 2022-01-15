@@ -1,0 +1,173 @@
+/*
+HackReason Submission
+Project Name: College Major Chooser
+Authors: Rita K. and Clara C.
+
+Possible Majors: Computer Science, Engineering, Medical, Law, English, Arts, Philosophy, Math, Education, Business 
+About our program: Provides the user with a suggested college major based on their responses
+to a series of questions relating to aspects of their personality.
+*/
+
+#include <iostream>
+
+using namespace std;
+int answer;
+
+int n() {
+
+	cout << "Do you want to work with the government?" << endl;
+	cout << "Enter 1 for yes, Enter 2 for no" << endl;
+	//y is law
+	//n is busi
+
+	cin >> answer;
+	cout << endl;
+
+	if (answer == 1) {
+		cout << "Your major: Law!";
+	}
+	else {
+		cout << "Your major: Business!";
+	}
+
+	return EXIT_SUCCESS;
+
+}
+
+int yes() {
+
+	cout << "Do you enjoy teaching?" << endl;
+	cout << "Enter 1 for yes, Enter 2 for no" << endl;
+	//y: education
+	//n: law, busi
+	
+	cin >> answer;
+	cout << endl;
+
+	if (answer == 1) {
+		cout << "Your major: Education!" << endl;
+		return EXIT_SUCCESS;
+	}
+	else {
+		n();
+	}
+
+}
+
+int extravert() {
+
+	cout << "Are you comfortable with public speaking?" << endl;
+	cout << "Enter 1 for yes, Enter 2 for no" << endl;
+	//yes: law, education, business
+	//no: medical
+	
+	cin >> answer;
+	cout << endl;
+
+	if (answer == 1) {
+		yes();
+	}
+	else {
+		cout << "Your major: Medical!";
+		return EXIT_SUCCESS;
+	}
+
+}
+
+int build() {
+
+	cout << "Do you like working with computers?" << endl;
+	cout << "Enter 1 for yes, Enter 2 for no" << endl;
+
+	//yes: compsci
+	//no: engineering
+	
+	cin >> answer;
+	cout << endl;
+
+	if (answer == 1) {
+		cout << "Your major: Computer Science!";
+	}
+	else {
+		cout << "Your major: Engineering!";
+	}
+	return EXIT_SUCCESS;
+
+}
+
+int head() {
+
+	cout << "Do you like creating things?" << endl;
+	cout << "Enter 1 for yes, Enter 2 for no" << endl;
+	//build: compsci, engineer
+	//no: math
+	
+	cin >> answer;
+	cout << endl;
+
+	if (answer == 1) {
+		build();
+	}
+	else {
+		cout << "Your major: Math!";
+		return EXIT_SUCCESS;
+	}
+
+}
+
+int heart() {
+
+	cout << "Would you rather draw or write?" << endl;
+	cout << "Enter 1 for draw, enter 2 for write" << endl;
+	//draw: art
+	//write: english
+	//return EXIT_SUCCESS
+	cin >> answer;
+	cout << endl;
+
+	if (answer == 1) {
+		cout << "Your major: Art!" << endl;
+	}
+	else {
+		cout << "Your major: English!" << endl;
+	}
+
+	return EXIT_SUCCESS;
+
+}
+
+void introvert() {
+
+	cout << "Do you tend to follow your heart or your head?" << endl;
+	cout << "Enter 1 for heart, Enter 2 for head" << endl;
+	//heart: english, arts
+	//head: compsci, engineer, math
+	cin >> answer;
+	cout << endl;
+
+	if (answer == 1) {
+		heart();
+	}
+	else {
+		head();
+	}
+
+
+}
+
+int main() {
+
+	cout << "Are you Introverted or Extraverted?" << endl;
+	cout << "Enter 1 for Introverted, Enter 2 for Extraverted" << endl;
+	//intro: compsci, engineer, philosophy, math, english, arts
+	//extra: medical, law, science, education, business
+	cin >> answer;
+
+	if (answer == 1) {
+		introvert();
+	}
+	else {
+		extravert();
+	}
+
+}
